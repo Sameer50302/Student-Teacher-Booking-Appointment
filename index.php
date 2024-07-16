@@ -24,7 +24,7 @@
                         <li><a href="about.php">About</a></li>
                         <li><a href="contact.php">Contact</a></li>
                         <li><a href="admin login/admin_login.php">Admin Login</a></li>
-                        <li><a href="user sign-in-up/user_login.php">Teacher Login</a></li>
+                        <li><a href="teacher sign-in-up/user_login.php">Teacher Login</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
@@ -35,7 +35,7 @@
                 <h2> Student-Teacher <span class="type2"></span> Appointment.</h2>
         
                 <p>“Education is our passport to the future, for tomorrow belongs to the people who prepare for it today.”</p>
-                <a href="user sign-in-up/user_login.php" class="hero-btn">Book Appointment</a>
+                <a href="student sign-in-up/student_login.php" class="hero-btn">Book Appointment</a>
             </div>
 
         </section>

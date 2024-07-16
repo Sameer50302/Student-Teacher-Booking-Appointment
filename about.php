@@ -21,7 +21,7 @@
                     <li><a href="about.php">About</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li><a href="admin login/admin_login.php">Admin Login</a></li>
-                    <li><a href="user sign-in-up/user_login.php">Teacher Login</a></li>
+                    <li><a href="teacher sign-in-up/user_login.php">Teacher Login</a></li>
                 </ul>
             </div>
             <i class="fa fa-bars" onclick="showMenu()"></i>
