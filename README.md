@@ -8,25 +8,35 @@ Technologies that I have used in the webiste are:-
 
 **HTML,CSS,JAVASCRIPT,PHP and FIREBASE**
 
-Hyper Text Markup Language is the standard markup language used to create web pages. 
+* Hyper Text Markup Language is the standard markup language used to create web pages. 
 
+* Cascading Style Sheet is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS defines how elements should be displayed on screen, paper, or in other media.
+
+* JAVASCRIPT is a versatile programming language primarily used for creating dynamic and interactive elements on websites.
+
+*Php is also used to store the database but it store the data in the local device.   
+
+* Firebase is a platform developed by Google for creating mobile and web applications. It provides a suite of tools and services to help developers build, improve, and grow their apps. Key features include a real-time NoSQL database, authentication services, cloud storage, hosting, and analytics.
 
 ** System Modules **
+
 Admin
- Add Teacher
- Name, Department, subject, etc
- Update/Delete Teacher
- Approve Registration Student
+ 1)Add Teacher
+    ->Name, Department, subject, etc
+ 2) Update/Delete Teacher
+ 3) Approve Registration Student
+
 Teacher
- Login
- Schedule Appointment
- Approve/cancel Appointment
- View Messages
- View All Appointment
- Logout
+ 1) Login
+ 2) Schedule Appointment
+ 3) Approve/cancel Appointment
+ 4) View Messages
+ 5) View All Appointment
+ 6) Logout
+ 
  Student
- Register
- Login
- Search Teacher
- Book Appointment
- Send Message
+ 1) Register
+ 2) Login
+ 3) Search Teacher
+ 4) Book Appointment
+ 5) Send Message
