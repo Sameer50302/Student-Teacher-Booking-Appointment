@@ -8,22 +8,35 @@
 <body>
     <div class="container">
         <h1>Student Dashboard</h1>
-        
+        <hr>
         <!-- Search Teacher -->
         <div>
             <h2>Search Teacher</h2>
             <form id="searchTeacherForm">
                 <div class="form-group">
                     <label for="teacherName">Teacher Name:</label>
-                    <input type="text" id="teacherName" required>
+                    <input type="text" id="teacherName" placeholder="If you dont Know the name just tap on the search teacher">
                 </div>
                 <button type="submit">Search Teacher</button>
             </form>
             <div id="teacherList">
                 <!-- Teachers will be listed here dynamically -->
+                <table id="teacherTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Id No</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Subject</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Teacher rows will be inserted here -->
+            </tbody>
+        </table>
             </div>
         </div>
-        
+        <hr>
         <!-- Book Appointment -->
         <div>
             <h2>Book Appointment</h2>
@@ -41,7 +54,7 @@
                 <button type="submit">Book Appointment</button>
             </form>
         </div>
-        
+        <hr>
         <!-- Send Message -->
         <div>
             <h2>Send Message</h2>
@@ -56,7 +69,11 @@
                 </div>
                 <button type="submit">Send Message</button>
             </form>
-            <a href="logout.php"> Logout</a>   
+            
+        </div>
+        <hr>
+        <div>
+        <button type="submit" id="logoutButton" class="log_btn">Log Out</button>
         </div>
     </div>
     

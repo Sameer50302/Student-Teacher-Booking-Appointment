@@ -17,7 +17,7 @@
         $password = $_POST["password"];
         // $conf_pass = $_POST["conf_pass"];
 
-        $result =mysqli_query($conn,"SELECT * FROM user_student WHERE username= '$usernameemail' OR email ='$usernameemail'");
+        $result =mysqli_query($conn,"SELECT * FROM user_teacher WHERE username= '$usernameemail' OR email ='$usernameemail'");
         $row = mysqli_fetch_assoc($result);
         if(mysqli_num_rows($result) > 0)
         {

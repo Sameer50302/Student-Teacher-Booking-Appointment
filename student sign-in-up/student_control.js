@@ -1,7 +1,6 @@
 // Import the necessary Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-import { getFirestore, collection, addDoc,  query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
-
+import { getFirestore, collection, query, where, getDocs,addDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -12,30 +11,47 @@ const firebaseConfig = {
     storageBucket: "appointment-df5dd.appspot.com",
     messagingSenderId: "844295855674",
     appId: "1:844295855674:web:36ed97bfc1eeb42f391f03"
-}
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Function to search for teachers by name
+
 document.getElementById('searchTeacherForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     
     const teacherName = document.getElementById('teacherName').value.trim();
+    const teacherTable = document.getElementById('teacherTable');
+    const teacherTableBody = teacherTable.querySelector('tbody');
+    teacherTableBody.innerHTML = ''; // Clear previous results
     
     try {
         const teachersRef = collection(db, 'teachers');
-        const querySnapshot = await getDocs(query(teachersRef, where('name', '==', teacherName)));
-        
-        document.getElementById('teacherList').innerHTML = ''; // Clear previous results
+        let querySnapshot;
+
+        if (teacherName) {
+            querySnapshot = await getDocs(query(teachersRef, where('name', '==', teacherName)));
+        } else {
+            querySnapshot = await getDocs(teachersRef);
+        }
         
         querySnapshot.forEach(doc => {
             const teacher = doc.data();
-            const div = document.createElement('div');
-            div.innerHTML = `<p>${teacher.name} - ${teacher.department}</p>`;
-            document.getElementById('teacherList').appendChild(div);
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${teacher.teach_id}</td>
+                             <td>${teacher.name}</td>
+                             <td>${teacher.department}</td>
+                             <td>${teacher.subject}</td>`;
+            teacherTableBody.appendChild(row);
         });
+
+        if (querySnapshot.empty) {
+            teacherTable.style.display = 'none'; // Hide table if no results
+            alert('No teachers found.');
+        } else {
+            teacherTable.style.display = 'table'; // Show table if results found
+        }
     } catch (error) {
         console.error('Error searching for teachers:', error);
         alert('Error searching for teachers: ' + error.message);
@@ -101,3 +117,8 @@ async function initializeDashboard() {
 
 // Call initializeDashboard to start the dashboard
 initializeDashboard();
+
+document.getElementById('logoutButton').addEventListener('click', function() {
+    // Perform logout action
+    window.location.href = "logout.php"; // Redirect to logout.php
+});

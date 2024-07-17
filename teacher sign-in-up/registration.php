@@ -11,9 +11,6 @@
     {
         die("Connection failed: " . mysqli_connect_error());
     }
-    // echo "connection success";
-
-    // require 'config.php';        `user_student`
 
     if(isset($_POST["signup"]))
     {
@@ -22,15 +19,10 @@
         $password = $_POST["password"];
         $conf_pass = $_POST["conf_pass"];
         
-        // $sql = "SELECT * FROM user_student WHERE email ='$email' AND password ='$password'";
-        $duplicate =mysqli_query($conn,"SELECT * FROM user_student WHERE username= '$username' OR email ='$email'");
        
-        // $result = mysqli_query($conn, $sql);
-
-        // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        // $count = mysqli_num_rows($result);
-        // if($count > 0)
-        if(mysqli_num_rows($duplicate) > 0)
+        $duplicate =mysqli_query($conn,"SELECT * FROM user_teacher WHERE username= '$username' OR email ='$email'");
+       
+          if(mysqli_num_rows($duplicate) > 0)
         {
             echo "<script>alert('Userame or Email already exist');</script>";
             echo "<script>window.location.href='user_login.php';</script>";
@@ -39,9 +31,9 @@
         {
             if($password == $conf_pass)
             {
-                // $sql = "INSERT INTO user_student (name, email, password) VALUES ('$name', '$email','$password')";
-                $query = "INSERT INTO user_student (username, email, password) VALUES ('$username', '$email','$password')";
-                // $result = mysqli_query($conn, $sql);
+              
+                $query = "INSERT INTO user_teacher (username, email, password) VALUES ('$username', '$email','$password')";
+                
                 mysqli_query($conn, $query);
                 echo "<script>alert('Registration Successful');</script>";
                 echo "<script>window.location.href='user_login.php';</script>";
