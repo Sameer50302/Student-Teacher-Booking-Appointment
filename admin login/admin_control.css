@@ -1,0 +1,148 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-image: url('img/5.jpg');
+    background-size: cover; /* This will make the image cover the entire background */
+    background-position: center; /* This will center the image in the background */
+    background-repeat: no-repeat; 
+    padding: 20px;
+}
+
+/* Container for the entire dashboard */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Titles and forms styling */
+
+h1
+{
+    font-family: 'Arial', sans-serif;
+    font-size: 48px;
+    text-align: center;
+    background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc); /* Gradient colors */
+    -webkit-background-clip: text; /* Apply gradient as text color */
+    -webkit-text-fill-color: transparent; /* Hide actual text color */
+    background-size: 200% 200%; /* Gradient animation */
+    animation: gradientAnimation 8s ease infinite; /* Animation properties */
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Initial gradient position */
+    }
+    50% {
+        background-position: 100% 50%; /* Mid-point gradient position */
+    }
+    100% {
+        background-position: 0% 50%; /* Final gradient position */
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: aqua;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: medium;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    /* width: 100%; */
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto; /* Center the button horizontally */
+    display: block; /* Required to make margin auto work */
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+.log_btn
+{
+    width: 100%;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    font-weight: 800;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.log_btn:hover {
+    background-color: darkred;
+}
+
+hr
+{
+    border: none;
+    height: 1px;
+    background-image: linear-gradient(to right, #f0f, #0ff, #00f); /* Gradient colors */
+    margin: 20px 0;    
+}
+
+
+/* Responsive design */
+@media (min-width: 768px) {
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-group label {
+        width: 20%;
+        margin-bottom: 0;
+    }
+
+    .form-group input {
+        width: 75%;
+    }
+}

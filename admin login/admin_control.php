@@ -7,14 +7,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin_control.css">
 </head>
 <body>
     <div class="container">
         <h1>Admin Dashboard</h1>
+        <hr>
+        
         <div>
             <h2>Add Teacher</h2>
             <form id="addTeacherForm">
+                
+                <div class="form-group">
+                    <label for="teach_id">Teacher ID:</label>
+                    <input type="text" id="teach_id" name="teach_id" required>
+                </div>
+
+               
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" required>
@@ -30,8 +39,9 @@
                 <button type="submit">Add Teacher</button>
             </form>
         </div>
+        <hr>
         <div>
-            <h2>Update/Delete Teacher</h2>
+            <h2>Update Teacher</h2>
             <form id="updateTeacherForm">
                 <div class="form-group">
                     <label for="teacherId">Teacher ID:</label>
@@ -39,20 +49,32 @@
                 </div>
                 <div class="form-group">
                     <label for="newName">New Name:</label>
-                    <input type="text" id="newName">
+                    <input type="text" id="newName" name="newName">
                 </div>
                 <div class="form-group">
                     <label for="newDepartment">New Department:</label>
-                    <input type="text" id="newDepartment">
+                    <input type="text" id="newDepartment" name="newDepartment">
                 </div>
                 <div class="form-group">
                     <label for="newSubject">New Subject:</label>
-                    <input type="text" id="newSubject">
+                    <input type="text" id="newSubject" name="newSubject">
                 </div>
-                <button type="submit">Update Teacher</button>
-                <button type="button" id="deleteTeacher">Delete Teacher</button>
+                <button type="submit" id="updateTeacher">Update Teacher</button>
             </form>
         </div>
+        <hr>
+        <div>
+            <h2>Delete Teacher</h2>
+            <form id="deleteTeacherForm">
+               
+                <div class="form-group">
+                    <label for="teacherId">Teacher ID:</label>
+                    <input type="text" id="teacherIdDelete" required>
+                </div>
+                <button type="submit" id="deleteTeacher">Delete Teacher</button>
+            </form>
+        </div>
+        <hr>
         <div>
             <h2>Approve Student Registration</h2>
             <form id="approveStudentForm">
@@ -61,9 +83,12 @@
                     <input type="text" id="studentId" required>
                 </div>
                 <button type="submit">Approve Student</button>
-                click here to <a href="logout.php">log outttt</a>
-
             </form>
+        </div>
+        <hr>
+        <div>
+       
+        <button type="submit" id="logoutButton" class="log_btn">Log Out</button>
         </div>
     </div>
 

@@ -54,7 +54,6 @@ form{
 .login-content h2{
 	margin: 15px 0;
 	color: #333;
-	/* text-transform: uppercase; */
 	font-size: 2.9rem;
 }
 
@@ -147,14 +146,6 @@ form{
 	margin-bottom: 4px;
 }
 
-/* a{
-	display: block;
-	text-align: right;
-	text-decoration: none;
-	color: #999;
-	font-size: 0.9rem;
-	transition: .3s;
-} */
 
 a:hover{
 	color: #38d39f;
