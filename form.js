@@ -2,18 +2,16 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 
-
-
-    // Your web app's Firebase configuration
-       const firebaseConfig = {
-        apiKey: "AIzaSyBg1FCGbLLPUySq3OD3BC0qFwUWAXJSyW8",
-        authDomain: "appointment-df5dd.firebaseapp.com",
-        databaseURL: "https://appointment-df5dd-default-rtdb.firebaseio.com",
-        projectId: "appointment-df5dd",
-        storageBucket: "appointment-df5dd.appspot.com",
-        messagingSenderId: "844295855674",
-        appId: "1:844295855674:web:36ed97bfc1eeb42f391f03"
-    };
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBg1FCGbLLPUySq3OD3BC0qFwUWAXJSyW8",
+    authDomain: "appointment-df5dd.firebaseapp.com",
+    databaseURL: "https://appointment-df5dd-default-rtdb.firebaseio.com",
+    projectId: "appointment-df5dd",
+    storageBucket: "appointment-df5dd.appspot.com",
+    messagingSenderId: "844295855674",
+    appId: "1:844295855674:web:36ed97bfc1eeb42f391f03"
+};
    
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

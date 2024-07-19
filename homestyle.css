@@ -16,8 +16,6 @@ nav{
     padding: 2% 6%;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #fff; */
-   
 }
 nav img{
     width: 100px;
@@ -56,7 +54,6 @@ nav img{
 .nav-links ul li:hover::after{
     width: 100%;
 }
-
 .text-box{
     width: 90%;
     color: #fff;
@@ -70,7 +67,6 @@ nav img{
     font-size: 62px;
     transition: 0.5s;
 }
-
 .text-box h2{
     margin: 15px 0px 25px;
     font-size: 30px;
@@ -82,7 +78,6 @@ nav img{
 .type2{
     color: #ddfa00;
 }
-
 /* to slid up the para */
 .text-box p{
     margin: 10px 0 40px;
@@ -90,7 +85,6 @@ nav img{
     color:#fff;
     animation: slide-up 3s;
 }
-
 @keyframes slide-up{
     from{
         opacity: 0.2;
@@ -114,17 +108,14 @@ nav img{
     cursor: pointer;
     font-weight: bold;
 }
-
 .hero-btn:hover{
     border: 3px solid #fff;
 	background: blue;
     transition: 1s;
 }
-
 nav .fa{
     display: none;
 }
-
 @media(max-width : 800px){
     .text-box h1{
         font-size: 20px;
@@ -155,19 +146,15 @@ nav .fa{
         padding: 30px;
     }
 }
-
 /* -----------------contact red btn------------------ */
 .red-btn{
     border: 1px solid #f44336;
     background: transparent;
     color: #f44336;
 }
-
 .red-btn:hover{
     color: #fff;
 }
-
-
 /*-------top image & text code------*/
 .sub-header{ 
     height: 50vh;
@@ -181,7 +168,6 @@ nav .fa{
 .sub-header h1{ 
     margin-top: 10px;    
 }
-
 .row p{
     font-size: 20px;
     font-family: cursive;
@@ -211,7 +197,6 @@ h3{
     font-weight: 600;
     margin: 10px 0;   
 }
-
 /*---------Contact us page----------------------*/
 .location{
     width: 80%;
@@ -221,11 +206,9 @@ h3{
 .location iframe{
     width: 100%;
 }
-
 .location h1{
     text-align: center;
 }
-
 .contact-us{
     width: 80%;
     margin: auto;
@@ -262,7 +245,6 @@ h3{
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
 /*---------About Page Content box----------------------*/
 .comment-box{
     border: 2px solid black ;
@@ -307,7 +289,7 @@ h3{
     font-size: 1.1em;
   
 }
-  .comment-box p:first-letter {
+.comment-box p:first-letter {
         font-size: 1.5em;
         font-weight: bold;
         color: black;

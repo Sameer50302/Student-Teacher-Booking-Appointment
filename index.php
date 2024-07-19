@@ -13,9 +13,9 @@
     <body>
         <section class="header">
             <nav>
-            <video autoplay loop muted plays-inline speed:8x class="back-video">
-                <source src="images/Lines - 4760.mp4" type="video/mp4">
-            </video>    
+                <video autoplay loop muted plays-inline speed:8x class="back-video">
+                    <source src="images/Lines - 4760.mp4" type="video/mp4">
+                </video>    
                 <a href="index.php"><img src="images/logo-tp.png"></a>
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hideMenu()"></i>
@@ -29,22 +29,16 @@
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
-
             <div class="text-box">
                 <h1>Student's are <span class="type"></span></h1>
                 <h2> Student-Teacher <span class="type2"></span> Appointment.</h2>
-        
                 <p>“Education is our passport to the future, for tomorrow belongs to the people who prepare for it today.”</p>
                 <a href="student sign-in-up/student_login.php" class="hero-btn">Book Appointment</a>
             </div>
-
         </section>
-
-
-    <!-------JavaScript for toggle menu------>
+        <!-------JavaScript for toggle menu------>
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
         <script>
-
             var navLinks = document.getElementById("navLinks")
             function showMenu(){
                 navLinks.style.right = "0";
@@ -53,22 +47,18 @@
                 navLinks.style.right = "-200px";
             }
 
-            
             var typed=new Typed(".type",{
                 strings: ["Leader","Future"],
                 typeSpeed:100,
                 backSpeed:100,
                 loop:true
             })
-
             var typed2=new Typed(".type2",{
                 strings: ["Booking","Meeting"],
                 typeSpeed:100,
                 backSpeed:100,
                 loop:true
             })
-            
-
         </script>
     </body>
 </html>

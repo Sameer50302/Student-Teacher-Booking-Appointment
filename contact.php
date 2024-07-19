@@ -27,10 +27,9 @@
             <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
         <h1>Contact Us</h1>
-  </section>
-
-  <!------------------ contact ------------------->
-   <section class="location">
+    </section>
+   <!------------------ contact ------------------->
+    <section class="location">
       <h1>Our Location</h1>
         <div class="loc-row">
             <div class="loc">
@@ -38,57 +37,54 @@
             </div>
         </div>        
     </section>
-  <section class="contact-us">
-    <div class="row">
-         <div class="contact-col">
-            <div>
-                <i class="fa fa-home"></i>
-                <span>
-                    <h5>Amity Rd, Sector 125</h5>
-                    <p>Noida, Uttar Pradesh</p>
-                </span>
+    <section class="contact-us">
+        <div class="row">
+            <div class="contact-col">
+                <div>
+                    <i class="fa fa-home"></i>
+                    <span>
+                        <h5>Amity Rd, Sector 125</h5>
+                        <p>Noida, Uttar Pradesh</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <span>
+                        <h5>+91 9971331***</h5>
+                        <p>Monday to Saturday, 10AM to 3PM</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-envelope-o"></i>
+                    <span>
+                        <h5>admissions@amity.edu</h5>
+                        <h5></h5>
+                        <p>Email us your query</p>
+                    </span>
+                </div>
             </div>
-            <div>
-                <i class="fa fa-phone"></i>
-                <span>
-                    <h5>+91 9971331***</h5>
-                    <p>Monday to Saturday, 10AM to 3PM</p>
-                </span>
+            <div class="contact-col">
+                <form  method="post" id="contactForm">
+                <input type="text" name="name" placeholder="Enter your name" required>
+                <input type="email" name="email" placeholder="Enter email address" required>
+                <input type="text" name="subject" placeholder="Enter your subject" required>
+                <textarea rows="8" name="message" placeholder="Message" required></textarea>
+                <button  type="submit" class="hero-btn red-btn">Send Message</button>
+                </form>
             </div>
-            <div>
-                <i class="fa fa-envelope-o"></i>
-                <span>
-                    <h5>admissions@amity.edu</h5>
-                    <h5></h5>
-                    <p>Email us your query</p>
-                </span>
-            </div>
-                      
-         </div>
-         <div class="contact-col">
-            <form  method="post" id="contactForm">
-            <input type="text" name="name" placeholder="Enter your name" required>
-            <input type="email" name="email" placeholder="Enter email address" required>
-            <input type="text" name="subject" placeholder="Enter your subject" required>
-            <textarea rows="8" name="message" placeholder="Message" required></textarea>
-            <button  type="submit" class="hero-btn red-btn">Send Message</button>
-            </form>
-         </div>
-         
-    </div>
-</section>
+        </div>
+    </section>
  
-<script type="module" src="form.js"></script>
- <!-------JavaScript for toggle menu------>
- <script>
-
-    var navLinks = document.getElementById("navLinks")
-    function showMenu(){
-        navLinks.style.right = "0";
-    }
-    function hideMenu(){
-        navLinks.style.right = "-200px";
-    }
-</Script>
+    <script type="module" src="form.js"></script>
+    <!-------JavaScript for toggle menu------>
+    <script>
+        var navLinks = document.getElementById("navLinks")
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+    </Script>
 </body>
 </html>

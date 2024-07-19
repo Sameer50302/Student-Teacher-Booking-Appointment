@@ -1,6 +1,6 @@
 // Import the necessary Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-import { getFirestore, collection, query, where, getDocs,addDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+import { getFirestore, collection, query, where, getDocs,addDoc,doc,setDoc,getDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -39,7 +39,7 @@ document.getElementById('searchTeacherForm').addEventListener('submit', async fu
         querySnapshot.forEach(doc => {
             const teacher = doc.data();
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${teacher.teach_id}</td>
+            row.innerHTML = `<td>${teacher.teach_email}</td>
                              <td>${teacher.name}</td>
                              <td>${teacher.department}</td>
                              <td>${teacher.subject}</td>`;
@@ -66,7 +66,7 @@ async function populateTeachersDropdown() {
     teachersSnapshot.forEach(doc => {
         const option = document.createElement('option');
         option.value = doc.id;
-        option.textContent = doc.data().name;
+        option.textContent = doc.data().teach_email;
         document.getElementById('selectedTeacher').appendChild(option);
     });
 }
@@ -75,16 +75,29 @@ async function populateTeachersDropdown() {
 document.getElementById('bookAppointmentForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     
-    const teacherId = document.getElementById('selectedTeacher').value;
+    const teacherEmail = document.getElementById('selectedTeacher').value;
     const dateTime = document.getElementById('appointmentDateTime').value;
+    const studentEmail = document.getElementById('studentEmail').value;
+    const studentName = document.getElementById('studentName').value;
     
     try {
-        await addDoc(collection(db, 'appointments'), {
-            teacherId: teacherId,
-            student: 'Current Student ID', // Replace with actual student ID
-            dateTime: dateTime,
-            status: 'pending' // Example status; adjust as needed
-        });
+         // Check if the staudent email already exists
+         const studentRef = doc(db, 'appointments', studentEmail);
+         const docSnap = await getDoc(studentRef);
+
+         if (docSnap.exists()) {
+             alert(`You have already booked an appointment with this "${studentEmail}"  Email Id!`);
+             return;
+         }
+
+         // If student mail doesn't exist, proceed to take appointment
+            await setDoc(studentRef,{
+                studentEmail: studentEmail,
+                studentName: studentName,
+                teacherEmail: teacherEmail,
+                dateTime: dateTime,
+                status: 'Pending' // Example status; adjust as needed
+            });
         alert('Appointment booked successfully!');
         document.getElementById('bookAppointmentForm').reset();
     } catch (error) {
@@ -93,16 +106,34 @@ document.getElementById('bookAppointmentForm').addEventListener('submit', async 
     }
 });
 
+
 // Function to send a message
 document.getElementById('sendMessageForm').addEventListener('submit', async function(event) {
     event.preventDefault();
     
     const recipient = document.getElementById('recipient').value.trim();
     const messageContent = document.getElementById('messageContent').value.trim();
-    
+    const studentEmail = document.getElementById('studentEmailMsg').value.trim();
     try {
         // Implement message sending logic here
-        alert(`Message sent to ${recipient} successfully!`);
+        // Check if the recipient (teacher) exists
+        const teacherRef = doc(db, 'teachers', recipient);
+        const teacherDoc = await getDoc(teacherRef);
+
+        if (!teacherDoc.exists()) {
+            alert(`No teacher found with ID: ${recipient}`);
+            return;
+        }
+
+        // Send the message
+        await addDoc(collection(db, 'messages'), {
+            recipient: recipient,
+            studentEmail: studentEmail,
+            messageContent: messageContent,
+            timestamp: new Date()
+        });
+
+        alert(`Message sent to "${recipient}" successfully!`);
         document.getElementById('sendMessageForm').reset();
     } catch (error) {
         console.error('Error sending message: ', error);
@@ -110,9 +141,44 @@ document.getElementById('sendMessageForm').addEventListener('submit', async func
     }
 });
 
+
+// Function to retrieve and display appointments with status for a specific student email
+document.getElementById('searchAppointmentForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    const studentEmailSearch = document.getElementById('studentEmailSearch').value.trim();
+    const appointmentTableBody = document.getElementById('appointmentTableBody');
+    appointmentTableBody.innerHTML = ''; // Clear previous results
+    
+    try {
+        const studentRef = doc(db, 'appointments', studentEmailSearch);
+        const docSnap = await getDoc(studentRef);
+
+        if (!docSnap.exists()) {
+            alert(`No appointments found for student email: ${studentEmailSearch}`);
+            return;
+        }
+
+        const appointment = docSnap.data();
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${appointment.studentEmail}</td>
+                         <td>${appointment.studentName}</td>
+                         <td>${appointment.teacherEmail}</td>
+                         <td>${appointment.dateTime}</td>
+                         <td>${appointment.status}</td>`;
+        appointmentTableBody.appendChild(row);
+
+        document.getElementById('appointmentTable').style.display = 'table'; // Show table if results found
+    } catch (error) {
+        console.error('Error retrieving appointment: ', error);
+        alert('Error retrieving appointment: ' + error.message);
+    }
+});
+
 // Initialize the dashboard
 async function initializeDashboard() {
     await populateTeachersDropdown();
+    // await displayAppointments();
 }
 
 // Call initializeDashboard to start the dashboard

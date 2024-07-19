@@ -44,27 +44,5 @@
             }
         }
 
-
-
-
-
-
-
-        // {
-        //     header("Location:welcome.php");
-        //     $_SESSION["username"]=$row['username'];
-        //     $_SESSION["password"]=$row['password'];
-        //     // added
-        //     $_SESSION['last_active_time']='yes';
-        // }
-        // else
-        // {
-        //     echo 
-        //     '<script>
-        //         window.location.href = "admin_login.php";
-        //         alert("Login failed. Invalid username and password!!!");
-        //     </script>';
-        // }
-
     }
 ?>

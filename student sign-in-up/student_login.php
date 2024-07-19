@@ -23,7 +23,6 @@
             <h2 class="title">Student Sign in</h2>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <!-- check this  -->
               <input type="text" name="usernameemail" placeholder="Username/Email Id" required/>
             </div>
             <div class="input-field">
@@ -32,9 +31,6 @@
             </div>
             <input type="submit" name="signin" value="Login" class="btn solid" />
           </form>
-
-          <!-- right now working on this  -->
-           <!-- this is registration .php  -->
           <form action="registration.php" method="post" class="sign-up-form">
             <h2 class="title">Student Sign up</h2>
             <div class="input-field">
@@ -55,10 +51,8 @@
             </div>
             <input type="submit" name="signup" id="signup" class="btn" value="Sign up" />
           </form>
-          <!-- end here -->
         </div>
       </div>
-
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">

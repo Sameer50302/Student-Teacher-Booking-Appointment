@@ -13,9 +13,7 @@
     if(isset($_POST["signin"]))
     {
         $usernameemail = $_POST["usernameemail"];
-        // $email = $_POST["email"];
         $password = $_POST["password"];
-        // $conf_pass = $_POST["conf_pass"];
 
         $result =mysqli_query($conn,"SELECT * FROM user_teacher WHERE username= '$usernameemail' OR email ='$usernameemail'");
         $row = mysqli_fetch_assoc($result);

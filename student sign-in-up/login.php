@@ -13,9 +13,8 @@
     if(isset($_POST["signin"]))
     {
         $usernameemail = $_POST["usernameemail"];
-        // $email = $_POST["email"];
         $password = $_POST["password"];
-        // $conf_pass = $_POST["conf_pass"];
+
 
         $result =mysqli_query($conn,"SELECT * FROM user_student WHERE username= '$usernameemail' OR email ='$usernameemail'");
         $row = mysqli_fetch_assoc($result);
@@ -32,7 +31,6 @@
                 echo "<script>alert('Invalid Password')</script>";
                 echo "<script>window.location.href='student_login.php';</script>";
             }
-
         }
         else
         {

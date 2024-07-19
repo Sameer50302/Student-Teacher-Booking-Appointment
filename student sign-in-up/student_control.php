@@ -24,7 +24,7 @@
                 <table id="teacherTable" style="display:none;">
             <thead>
                 <tr>
-                    <th>Id No</th>
+                    <th>Email Id</th>
                     <th>Name</th>
                     <th>Department</th>
                     <th>Subject</th>
@@ -48,6 +48,14 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="studentEmail">Email Id:</label>
+                    <input type="email" id="studentEmail" placeholder="Enter Your Email Id">
+                </div>
+                <div class="form-group">
+                    <label for="studentName">Name:</label>
+                    <input type="text" id="studentName" placeholder="Enter Your Name">
+                </div>
+                <div class="form-group">
                     <label for="appointmentDateTime">Date and Time:</label>
                     <input type="datetime-local" id="appointmentDateTime" required>
                 </div>
@@ -55,13 +63,43 @@
             </form>
         </div>
         <hr>
-        <!-- Send Message -->
+<div>
+    <!-- Add this form to search appointment status by student email -->
+<form id="searchAppointmentForm">
+    <label for="studentEmailSearch">Enter Student Email:</label>
+    <input type="email" id="studentEmailSearch" required>
+    <button type="submit">Search Appointment Status</button>
+</form>
+
+<!-- Appointment status table -->
+<table id="appointmentTable" style="display:none;">
+    <thead>
+        <tr>
+            <th>Student Email</th>
+            <th>Student Name</th>
+            <th>Teacher Email</th>
+            <th>Date and Time</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="appointmentTableBody">
+        <!-- Appointment rows will be added here dynamically -->
+    </tbody>
+</table>
+        </div>
+        <hr>
+        
         <div>
+            
             <h2>Send Message</h2>
             <form id="sendMessageForm">
                 <div class="form-group">
+                    <label for="studentEmailMsg">Your Email:</label>
+                    <input type="email" id="studentEmailMsg" required>
+                </div>
+                <div class="form-group">
                     <label for="recipient">Recipient:</label>
-                    <input type="text" id="recipient" required>
+                    <input type="email" id="recipient" required>
                 </div>
                 <div class="form-group">
                     <label for="messageContent">Message:</label>
@@ -69,8 +107,8 @@
                 </div>
                 <button type="submit">Send Message</button>
             </form>
-            
         </div>
+
         <hr>
         <div>
         <button type="submit" id="logoutButton" class="log_btn">Log Out</button>
